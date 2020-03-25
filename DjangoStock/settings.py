@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'DjangoStock',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,9 @@ ROOT_URLCONF = 'DjangoStock.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +69,7 @@ TEMPLATES = [
         },
     },
 ]
+STATIC_TEMPLATES = '/templates/'
 
 WSGI_APPLICATION = 'DjangoStock.wsgi.application'
 
