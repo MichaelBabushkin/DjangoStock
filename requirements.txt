@@ -1,0 +1,5 @@
+django-admin
+requests
+SQLAlchemy
+beautifulsoup4
+pandas 

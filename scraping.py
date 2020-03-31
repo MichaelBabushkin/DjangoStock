@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from sqlalchemy import create_engine
 import pymysql
 from pymysql import Error
-from urllib.request import Request, urlopen
+# from urllib.request import Request, urlopen
 
 
 page = requests.get('https://www.globes.co.il/portal/instrument.aspx?instrumentid=373853&feeder=1')
@@ -15,51 +15,38 @@ page2=requests.get('https://www.globes.co.il/portal/instrument.aspx?instrumentid
 soup2 = BeautifulSoup(page2.content, 'html.parser')
 table = soup2.find_all('table',id="stocksTable2")
 table=table[0]
-url= requests.get('https://www.yad2.co.il/realestate/rent?city=4000&neighborhood=637&rooms=2--1&price=1600-2800')
-req = Request(url , headers={'User-Agent': 'Mozilla/5.0'})
 
-webpage = urlopen(req).read()
-page_soup = soup(webpage, "html.parser")
-title = page_soup.find("title")
-print(title)
-containers = page_soup.findAll("p","promo")
-for container in containers:
-    print(container)
+data = []
 
+for row in table.find_all('tr'):
+    cols = row.find_all('td')
+    cols = [ele.text.strip() for ele in cols]
+    data.append([ele for ele in cols if ele]) # Get rid of empty values
 
+try:
+    connection  = pymysql.connect(host = 'localhost', database = 'project', user = 'root', password = '')
+    cursor = connection.cursor()
+    query =""" CREATE TABLE IF NOT EXISTS project.sp500_stats(Name VARCHAR(45),Symbol VARCHAR(45),Stock_Market VARCHAR(45),Last_Deal VARCHAR(45), Last_Stock_Value VARCHAR(45), Daily_Change VARCHAR(45), Daily_Change_in VARCHAR(45), Total VARCHAR(45),Daily_Max VARCHAR(45),Daily_Min VARCHAR(45)) """
+    values =(tuple(data[0]))
+    cursor.execute(query)
+    connection.commit()
+except Error as e:
+    print('Error : ',e)
 
+try:
+    connection  = pymysql.connect(host = 'localhost', database = 'project', user = 'root', password = '')
+    cursor = connection.cursor()
+    i = 0
+    while i < len(data):
 
-# data = []
-
-# for row in table.find_all('tr'):
-#     cols = row.find_all('td')
-#     cols = [ele.text.strip() for ele in cols]
-#     data.append([ele for ele in cols if ele]) # Get rid of empty values
-
-# try:
-#     connection  = pymysql.connect(host = 'localhost', database = 'project', user = 'root', password = 'abc')
-#     cursor = connection.cursor()
-#     query =""" CREATE TABLE IF NOT EXISTS project.sp500_stats(Name VARCHAR(45),Symbol VARCHAR(45),Stock_Market VARCHAR(45),Last_Deal VARCHAR(45), Last_Stock_Value VARCHAR(45), Daily_Change VARCHAR(45), Daily_Change_in VARCHAR(45), Total VARCHAR(45),Daily_Max VARCHAR(45),Daily_Min VARCHAR(45)) """
-#     values =(tuple(data[0]))
-#     cursor.execute(query)
-#     connection.commit()
-# except Error as e:
-#     print('Error : ',e)
-
-# try:
-#     connection  = pymysql.connect(host = 'localhost', database = 'project', user = 'root', password = 'abc')
-#     cursor = connection.cursor()
-#     i = 0
-#     while i < len(data):
-
-#         query = """INSERT INTO project.sp500_stats VALUES (%s ,%s ,%s ,%s, %s ,%s ,%s ,%s ,%s, %s)   """
-#         values =(tuple(data[i]))
-#         cursor.execute(query,values)
-#         connection.commit()
-#         i += 1
-# except Error as e:
-#     print('Error : ',e)
-
+        query = """INSERT INTO project.sp500_stats VALUES (%s ,%s ,%s ,%s, %s ,%s ,%s ,%s ,%s, %s)   """
+        values =(tuple(data[i]))
+        print(values)
+        cursor.execute(query,values)
+        connection.commit()
+        i += 1
+except Error as e:
+    print('Error : ',e)
 
 
 
