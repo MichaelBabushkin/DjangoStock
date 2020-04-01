@@ -26,6 +26,15 @@ for row in table.find_all('tr'):
 try:
     connection  = pymysql.connect(host = 'localhost', database = 'project', user = 'root', password = '')
     cursor = connection.cursor()
+    query =""" DROP TABLE project.sp500_stats """
+    cursor.execute(query)
+    connection.commit()
+except Error as e:
+    print('Error : ',e)
+
+try:
+    connection  = pymysql.connect(host = 'localhost', database = 'project', user = 'root', password = '')
+    cursor = connection.cursor()
     query =""" CREATE TABLE IF NOT EXISTS project.sp500_stats(Name VARCHAR(45),Symbol VARCHAR(45),Stock_Market VARCHAR(45),Last_Deal VARCHAR(45), Last_Stock_Value VARCHAR(45), Daily_Change VARCHAR(45), Daily_Change_in VARCHAR(45), Total VARCHAR(45),Daily_Max VARCHAR(45),Daily_Min VARCHAR(45)) """
     values =(tuple(data[0]))
     cursor.execute(query)
