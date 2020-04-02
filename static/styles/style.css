@@ -1,0 +1,6 @@
+main {
+    height: 100vh;
+    background-attachment: fixed;
+    background-image: url(/static/images/mapbg.jpg);
+    background-size: 100%;
+}
