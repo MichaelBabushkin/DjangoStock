@@ -1,6 +1,39 @@
+@keyframes start {
+    from {background-size: 100%;}
+    to {background-size: 150%;}
+   
+}
 main {
-    height: 100vh;
+    height: 120vh;
+    padding: 10vh 0 10vh 0;
     background-attachment: fixed;
     background-image: url(/static/images/mapbg.jpg);
     background-size: 100%;
+    background-position: center;
+    animation: start 5s ease-in 1s infinite alternate-reverse forwards;
+}
+nav, 
+#charts, 
+footer {
+    background-color: #1d1d1d;
+    color: #cccccc;
+}
+nav {
+    border-bottom: 2px solid grey;
+}
+footer {
+    height: 10vh;
+    border-top: 2px solid grey;
+}
+#charts {
+    height:80vh;
+    width: 80vw;
+    margin: 5vh 10vw;
+    padding: 50px;
+    opacity: 0.8;
+    border-radius: 10px;
+    border: 2px solid grey;
+}
+#logo {
+    width: 50px;
 }
