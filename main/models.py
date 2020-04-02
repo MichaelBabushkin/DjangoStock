@@ -68,13 +68,12 @@ class Sp500(models.Model):
 
                 query = """INSERT INTO project.sp500_stats VALUES (%s ,%s ,%s ,%s, %s ,%s ,%s ,%s ,%s, %s)   """
                 values =(tuple(data[i]))
-                print(values)
+                # print(values)
                 cursor.execute(query,values)
                 connection.commit()
                 i += 1
         except Error as e:
             print('Error : ',e)
-        
-        print(values)
-        return values[0]
+
+        return data
             

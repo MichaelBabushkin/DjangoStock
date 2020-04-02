@@ -4,7 +4,7 @@
    
 }
 main {
-    height: 120vh;
+    min-height: 120vh;
     padding: 10vh 0 10vh 0;
     background-attachment: fixed;
     background-image: url(/static/images/mapbg.jpg);
@@ -26,13 +26,23 @@ footer {
     border-top: 2px solid grey;
 }
 #charts {
-    height:80vh;
+    direction: rtl;
+    text-align: right;
+    min-height:80vh;
     width: 80vw;
     margin: 5vh 10vw;
-    padding: 50px;
-    opacity: 0.8;
+    padding: 150px;
+    opacity: 0.9;
     border-radius: 10px;
     border: 2px solid grey;
+}
+#charts td {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #000;
+}
+#charts th {
+    text-align: center;
 }
 #logo {
     width: 50px;

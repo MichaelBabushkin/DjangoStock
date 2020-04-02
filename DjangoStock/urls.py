@@ -20,5 +20,6 @@ views = Views()
 
 urlpatterns = [
     path('', views.index),
+    path('stats/', views.stock_data),
     path('admin/', admin.site.urls),
 ]
