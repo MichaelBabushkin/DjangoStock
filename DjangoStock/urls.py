@@ -23,3 +23,4 @@ urlpatterns = [
     path('stats/', views.stock_data),
     path('admin/', admin.site.urls),
 ]
+ 

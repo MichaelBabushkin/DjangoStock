@@ -6,16 +6,16 @@ $(document).ready(() =>{
     let table = `<table>
     <thead>
       <tr>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
-        <th>6</th>
-        <th>7</th>
-        <th>8</th>
-        <th>9</th>
-        <th>10</th>
+        <th>Name</th>
+        <th>Symbol</th>
+        <th>Stock Market</th>
+        <th>Last Deal</th>
+        <th>Last Rate</th>  
+        <th>Daily Change</th>
+        <th>Daily Change in %</th>
+        <th>Trade Volume</th>
+        <th>Daily Max</th>
+        <th>Daily Min</th>
       </tr>
     </thead>
     <tbody>
