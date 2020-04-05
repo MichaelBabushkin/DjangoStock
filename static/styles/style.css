@@ -3,6 +3,10 @@
     to {background-size: 150%;}
    
 }
+.preloader {
+    width: 80%;
+    margin: 100px 10%;
+}
 main {
     min-height: 120vh;
     padding: 10vh 0 10vh 0;
@@ -13,7 +17,6 @@ main {
     animation: start 5s ease-in 1s infinite alternate-reverse forwards;
 }
 nav, 
-#charts, 
 footer {
     background-color: #1d1d1d;
     color: #cccccc;
@@ -31,21 +34,24 @@ footer {
     min-height:80vh;
     width: 80vw;
     margin: 5vh 10vw;
-    padding: 50px;
-    opacity: 0.5;
+    opacity: 0.9;
     border-radius: 10px;
-    border: 2px solid grey;
+    color: #cccccc;
+}
+#charts table {
+    width: 100%;
 }
 #charts td:first-child {
     direction: rtl;
 }
-.charts td {
+.charts td,#charts th {
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #000;
 }
 #charts th {
     text-align: center;
+    background-color: #1d1d1d;
 }
 #logo {
     width: 50px;
@@ -69,4 +75,11 @@ td.bigPlus {
 td.smallPlus {
     background-color: #CFFADB;
     color: #009900 ;
+}
+td.bigMinus,
+td.smallMinus,
+td.zeroValue,
+td.bigPlus,
+td.smallPlus {
+    border-color: #000;
 }

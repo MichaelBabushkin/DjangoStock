@@ -38,24 +38,7 @@ $(document).ready(() =>{
         for (let td = 0; td < dataRow.length; td++) {
             var trCellDataClass = "";
             if (td===6){
-                var trCellData=parseFloat(dataRow[td]);
-              // switch(trCellData){
-              //     // case trCellData>5.0:
-              //     // trCellDataClass="bigPlus";
-              //     // break;
-              //     case trCellData>0&&trCellData<=5.0:
-              //     trCellDataClass="smallPlus";
-              //     break;
-              //     case trCellData<0&&trCellData>-5.0:
-              //     trCellDataClass="smallMinus";
-              //     break;
-              //     case trCellData<=-5.0:
-              //     trCellDataClass="smallPlus";
-              //     break;
-              //     default:
-              //     trCellDataClass="zeroValue";
-              //     break;
-            
+              var trCellData=parseFloat(dataRow[td]);
               if ( trCellData>5) {
                 trCellDataClass="bigPlus";
               } else if (trCellData>0&&trCellData<=5.0) {
@@ -67,7 +50,6 @@ $(document).ready(() =>{
               }else{
                 trCellDataClass="zeroValue";
               }
-            
               $(htmlRow).append("<td class="+ trCellDataClass +">" + dataRow[td] + "</td>");
             } 
             else {
