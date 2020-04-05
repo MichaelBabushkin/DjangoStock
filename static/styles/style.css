@@ -26,17 +26,20 @@ footer {
     border-top: 2px solid grey;
 }
 #charts {
-    direction: rtl;
+    direction: ltr;
     text-align: right;
     min-height:80vh;
     width: 80vw;
     margin: 5vh 10vw;
-    padding: 150px;
-    opacity: 0.9;
+    padding: 50px;
+    opacity: 0.5;
     border-radius: 10px;
     border: 2px solid grey;
 }
-#charts td {
+#charts td:first-child {
+    direction: rtl;
+}
+.charts td {
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #000;
@@ -46,4 +49,24 @@ footer {
 }
 #logo {
     width: 50px;
+}
+td.bigMinus {
+    color: #ffffff;
+    background-color: #cc0000;
+}
+td.smallMinus {
+    color:#cc0000;
+    background-color: #F9DCD3;
+}
+td.zeroValue {
+    color: #ffffff;
+    background-color: #1d1d1d;
+}
+td.bigPlus {
+    background-color: #009900;
+    color: #ffffff;
+}
+td.smallPlus {
+    background-color: #CFFADB;
+    color: #009900 ;
 }
