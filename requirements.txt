@@ -1,6 +1,7 @@
 django
 django-admin
 requests
+mysqlclient
 SQLAlchemy
 beautifulsoup4
 pandas 
