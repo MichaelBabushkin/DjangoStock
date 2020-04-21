@@ -1,10 +1,9 @@
-Vue.config.devtools = true;
 var charts = new Vue ({
  
   delimiters: ['[[', ']]'],
   el : "#charts",
   data: {
-    template : `<table>
+    table : `<table>
       <thead>
         <tr>
           <th>Name</th>
@@ -35,7 +34,7 @@ var charts = new Vue ({
       $.ajax( "/stats/" )
       .done(function(resp) {
         resp = $.parseJSON(resp);
-        $("#charts").empty().append(object.template);
+        $("#charts").empty().append(object.table);
         for (let i = 0; i < resp.length; i++) {
             let dataRow = resp[i];
             let htmlRow = $("<tr />");
